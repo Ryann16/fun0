@@ -2,11 +2,326 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>这是JavaScript权威指南示例练习</title>
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>这是JavaScrilit权威指南示例练习</title>
+	<meta name="viewliort" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="css/general.css">
+	<style>
+		body{
+			font-size: 10px;
+		}
+		h1{
+			text-align: center;
+			font-size: 3rem;
+			color: #999;
+			margin-top: 2rem;
+			margin-bottom: 1rem;
+		}
+		.links{
+			display: flex;
+		}
+		p{
+			margin-bottom: 5px;
+		}
+		ul{
+			flex: 1;
+			padding: 20px 40px;
+			text-align: center;
+			border: 2px dashed gray;
+		}
+		li a{
+			line-height: 2;
+			font-size: 2rem;
+			color: green;
+		}
+		.controller{
+			position: absolute;
+			top: 1rem;
+			right: 10%;
+		}
+		.controller label{
+			color: orange;
+			display: inline-block;
+			width: 200px;
+			font-size: 1rem;
+			text-align: justify;
+		}
+		.controller input{
+			width: 100px;
+		}
+		.controller button#submit{
+			position: absolute;
+			right: -40%;
+			bottom: 1rem;
+			width: 80px;
+			height: 30px;
+			background: orange;
+			border: 1px solid #fff;
+			border-radius: .2em;
+			color: #fff;
+			outline: none;
+		}
+	</style>
 </head>
 <body>
-	
-	<link rel="stylesheet" href="js/script.js">
+	<h1>这里放置的是每一章的链接</h1>
+	<div class="links">
+<!-- 		<ul>
+			<li><a href="cn/1.html">第一章</a></li>
+			<li><a href="cn/2.html">第二章</a></li>
+			<li><a href="cn/3.html">第三章</a></li>
+			<li><a href="cn/4.html">第四章</a></li>
+			<li><a href="cn/5.html">第五章</a></li>
+			<li><a href="cn/6.html">第六章</a></li>
+			<li><a href="cn/7.html">第七章</a></li>
+			<li><a href="cn/8.html">第八章</a></li>
+			<li><a href="cn/9.html">第九章</a></li>
+			<li><a href="cn/10.html">第十章</a></li>
+			<li><a href="cn/1.html">第十一章</a></li>
+		</ul>
+			<ul>
+			<li><a href="cn/2.html">第十二章</a></li>
+			<li><a href="cn/3.html">第十三章</a></li>
+			<li><a href="cn/4.html">第十四章</a></li>
+			<li><a href="cn/5.html">第十五章</a></li>
+			<li><a href="cn/6.html">第十六章</a></li>
+			<li><a href="cn/7.html">第十七章</a></li>
+			<li><a href="cn/8.html">第十八章</a></li>
+			<li><a href="cn/9.html">第十九章</a></li>
+			<li><a href="cn/10.html">第二十章</a></li>
+			<li><a href="cn/10.html">第二一章</a></li>
+			<li><a href="cn/10.html">第二二章</a></li>
+		</ul>	 -->
+	</div>
+	<div class="controller">
+		<p><label for="linkNum">填入要生成的最大章节数：</label><input type="num" id="linkNum"></p>
+		<p><label for="columnNum">填入要显示的列数：</label><input type="num" id="columnNum"></p>
+		<p><label for="disabledData">填入不显示的页面：</label><input type="num" id="disabledData" placeholder="以点号分隔"></p>
+		<button id="submit">提交</button>
+	</div>
+	<script>
+
+	/* linkNum是链接个数，column是链接列数，parentNode规定在哪个节点上创建链接，aTarget定义链接打开方式，disabledSection规定了哪些链接不显示 */
+		var linkNum = 22,
+			column = 2,
+			disabledSection = [1, ];
+		var linkContainer = document.querySelector('.links');
+
+		var columnNumNode,
+			linkNumNode,
+			disabledDataNode;
+	 	columnNumNode = document.getElementById('columnNum'),
+		linkNumNode = document.getElementById('linkNum'),
+		disabledDataNode = document.getElementById('disabledData'); 
+
+		if(document.cookie != null) {
+			console.log(document.cookie);
+		}
+		if(getCookie('linkNum')) {
+			linkNum = getCookie('linkNum');
+		}
+		if(getCookie('column')) {
+			column = getCookie('column');
+		}
+		if(getCookie('disabledSection')) {
+			disabledSection = getCookie('disabledSection');
+		}
+
+		var submitBtn = document.getElementById('submit');
+		submitBtn.addEventListener('click', function() {	
+			if(getData()) {
+				if(getData().linkNum) {
+					linkNum = getData().linkNum;
+					setCookie('linkNum', linkNum);
+				} 
+				if(getData().columnNum) {
+					column = getData().columnNum;
+					setCookie('column', column);
+				}
+				if(getData().disabledData.length > 0 && getData().disabledData[0] != '') {
+					disabledSection = getData().disabledData;
+					setCookie('disabledSection', disabledSection);
+				}
+			}  
+			setOutput();
+		}, false);
+
+		setOutput();
+
+
+		function setOutput() {
+			linkNumNode.value = linkNum;
+			columnNumNode.value = column;
+			disabledDataNode.value = disabledSection;
+
+			console.log(linkNum);
+
+			createCloumnLinks(column, linkNum, linkContainer, '_blank', disabledSection);
+		}
+
+		// cookie操作
+		// 创建cookie
+		function setCookie(c_name, value, expiredays) {
+			var exdate = new Date();
+			exdate.setDate(exdate.getDate() + expiredays);
+			document.cookie = c_name + '=' + escape(value) + 
+			((expiredays == null) ? "" : ";expiredays=" + exdate.toGMTString());
+		}
+
+		// 获取cookie
+		function getCookie(c_name) {
+			if(document.cookie.length > 0) {
+				c_start = document.cookie.indexOf(c_name + '=');
+				if(c_start != -1) {
+					c_start = c_start + c_name.length + 1;
+					c_end = document.cookie.indexOf(";", c_start);
+					if(c_end == -1) {
+						c_end = document.cookie.length;
+					}
+					return unescape(document.cookie.substring(c_start, c_end));
+				}
+				return "";
+			}
+			return "";
+		}
+
+		// 删除cookie
+		function delCookie(c_name) {
+			if(getCookie(c_name) != null) {
+				setCookie(c_name, '', -1);
+			}
+		}
+
+        // 创建链接，count是整个链接显示控制脉络
+		function createCloumnLinks(column, linkNum, parentNode, aTarget, disabledSection)
+		{
+			// 清空链接盒子
+			parentNode.innerHTML = '';
+			disabledSeLen = getData().disabledSeLen;
+
+			var	linkNum = linkNum - disabledSeLen,
+				fragment = document.createDocumentFragment(),
+				singleListNum = Math.floor(linkNum/column),
+				extra = linkNum - singleListNum*column,
+				i,
+				liList,
+				count = 0;
+			if(linkNum < column && linkNum) {
+				column = linkNum;
+			}
+			var columnTmp = column;
+
+			while(column) {
+				var ulList = document.createElement('ul');
+				if(column == 1) {
+					var extra1 = linkNum - (columnTmp-1)*singleListNum;
+					if(extra1 < singleListNum) {					
+						for(i = 0; i < extra1; i++) {
+							count++;
+							for(var j in disabledSection) {
+								if(disabledSection[j] == count) {
+									count++;
+								}
+							}
+							createLiList(ulList, aTarget);
+						}
+						break;
+					}
+				}
+				for(i = 0; i < singleListNum; i++) {
+					count++;
+					for(var j in disabledSection) {
+						if(disabledSection[j] == count) {
+							count++;
+						}
+					}
+					createLiList(ulList, aTarget);
+				}
+				if(column > 1) {
+					fragment.appendChild(ulList);
+				}
+				column--;
+			}
+			if(extra) {
+				for(i = 0; i < extra; i++) {
+					count++;
+					createLiList(ulList, aTarget);
+				}
+			}
+			fragment.appendChild(ulList);
+			parentNode.appendChild(fragment);
+
+			function createLiList() {
+				var str1 = '0123456789',
+					str2 = '十一二三四五六七八九',
+					countTemp = count;
+				if(count < 10) {
+					countTemp = str2[count];
+				} else{
+					var up = parseInt(count/10),
+						low = count%10;
+					countTemp = str2[up] + str2[low];
+				}
+
+				liList = document.createElement('li');
+				alink = document.createElement('a');
+				alink.href = 'cn/' + count + '.html';
+				alink.innerText = '第' + countTemp + '章';
+				alink.target = aTarget;
+
+				liList.appendChild(alink);
+				ulList.appendChild(liList);
+			}
+		}
+
+	// 获取页面信息
+		function getData() {
+			var columnNum,
+				linkNum,
+				disabledData,
+				disabledSeLen;
+
+		 	columnNum = parseInt(document.getElementById('columnNum').value),
+			linkNum = parseInt(document.getElementById('linkNum').value),
+			disabledData = document.getElementById('disabledData').value;
+			// 将不显示页面字符串处理为数组
+			disabledData = disabledData.split(/[,，、.]/);
+			// 去掉范围外的disabledData
+			// 
+			// 设置输入-1时显示所有页面
+			// if(parseInt(disabledData[0]) == -1 && disabledData.length == 1) {
+			// 	console.log(1);
+			// 	return {
+			// 		'columnNum': columnNum,
+			// 		'linkNum': linkNum,
+			// 		'disabledData': disabledData,
+			// 		'disabledSeLen': 0
+			// 	} 
+			// }
+			
+			for(var i in disabledData) {
+					console.log((disabledData[i]));
+					console.log(linkNum);
+				// 去除范围之外数值
+				if((parseInt(disabledData[i]) < 1) || parseInt((disabledData[i])) > linkNum) {
+					console.log((disabledData[i]));
+					disabledData.splice(i, 1);
+				}
+				// 去除重复项
+			}
+
+			if(columnNum || linkNum || (disabledData.length>0 && disabledData[0])) {
+				return {
+					'columnNum': columnNum,
+					'linkNum': linkNum,
+					'disabledData': disabledData,
+					'disabledSeLen': disabledData.length
+				} 
+			} else {
+					return false;
+				}
+		}
+
+		// 验证输入的数据  包括是否是数字，以及数值是否超出范围
+	</script>
 </body>
 </html>
