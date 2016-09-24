@@ -130,10 +130,9 @@ body{font-family: 'Microsoft YaHei'; overflow-x: hidden;}
 	transform-origin: bottom center;
 }
 .m-cardWrap .card:last-child {
-	transform: rotateY(-10deg) rotateZ(-1deg);
-	top: 1%;
-	left: -3%;
-	width: 100.5%;
+	transform: rotateY(-3deg) rotateZ(-1deg);
+    top: 1%;
+    left: -2%;
 }
 .m-cardCxt{
 	width: 100%;
@@ -254,7 +253,7 @@ body{font-family: 'Microsoft YaHei'; overflow-x: hidden;}
 }
 .u-header h3{
 	font-size: .8rem;
-    margin-top: -4px;
+    /*margin-top: -4px;*/
     margin-bottom: 3px;
 }
 .u-header .right p{
