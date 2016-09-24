@@ -244,11 +244,11 @@ body{font-family: 'Microsoft YaHei'; overflow-x: hidden;
 	font: italic 3rem impact;
 }
 .u-header{
-	height: 2.2rem;
+	height: 2rem;
 	color: #fff;
 	text-align: left;
 	padding-left: 6%;
-	padding-top: .1rem;
+	padding-top: .3rem;
 }
 
 .u-header > *{
