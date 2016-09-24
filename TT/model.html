@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模块组件</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css">
+	<style type="text/css">
+		body{background-color: lightblue;}
+		img{width: 100%;}
+		.m-round{
+			position: relative;
+			width: 200px;
+			height: 200px;
+			outline: 1px dashed #000;
+			font-size: 0;
+		}
+		.m-round .roundObj{
+			display: inline-block;
+			border-radius: 50%;
+			line-height: 0;
+			background-color: #fe7832;
+		}
+		.m-round .top, .m-round .left, .m-round .right, .m-round .bottom{
+			position: absolute;
+
+		}
+		.m-round .top{left: 0; top: 0;}
+		.m-round .top .roundObj{ margin-right: 5px;}
+		.m-round .right{top: 0; right: 0; }
+		.m-round .right .roundObj{margin-bottom: 5px;}
+		.m-round .bottom{bottom: 0; right: 0; }
+		.m-round .bottom .roundObj{margin-left: 5px;}
+		.m-round .left{bottom: 0; left: 0; }
+		.m-round .left .roundObj{margin-top: 5px;}
+
+		.m-round .left, .m-round .right{
+			width: 10px;
+		}
+		.m-round .top, .m-round .bottom{white-space: nowrap;}
+		.floatReverse{
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<button class="u-btn1">去看看</button>
+	<div class="m-cards">
+		<div class="m-cardWrap">
+			<div class="card"></div>
+			<div class="card"></div>
+			<div class="card"></div>
+		</div>
+		<div class="m-slide m-slide-y">
+			<ol>
+				<li class="m-cardCxt z-crt">
+					<h3 class="hd">光大永明定活保168</h3>
+					<div class="bd rate">
+						<p>预期年化收益率</p>
+						<p class="rateNum"><span>6.1</span>%</p>
+					</div>
+					<div class="ft g-divideFlex">
+						<div class="lockDays">
+							<p>锁定期</p>
+							<p>66天</p>
+						</div>
+						<div class="lowestPrice f-oneLine">
+							<p>起购金额(元)</p>
+							<p>1000</p>
+						</div>
+						<div class="riskRate">
+							<p>风险等级</p>
+							<p class="rRate risk">中</p>
+						</div>
+					</div>				
+				</li>
+				<li class="m-cardCxt">
+					<h3 class="hd">光大永明定活保168</h3>
+					<div class="bd rate">
+						<p>预期年化收益率</p>
+						<p class="rateNum"><span>6.1</span>%</p>
+					</div>
+					<div class="ft g-divideFlex">
+						<div class="lockDays">
+							<p>锁定期</p>
+							<p>66天</p>
+						</div>
+						<div class="lowestPrice f-oneLine">
+							<p>起购金额(元)</p>
+							<p>1000</p>
+						</div>
+						<div class="riskRate">
+							<p>风险等级</p>
+							<p class="rRate risk">中</p>
+						</div>
+					</div>	
+				</li>
+				<li class="m-cardCxt">
+					<h3 class="hd">光大永明定活保168</h3>
+					<div class="bd rate">
+						<p>预期年化收益率</p>
+						<p class="rateNum"><span>6.1</span>%</p>
+					</div>
+					<div class="ft g-divideFlex">
+						<div class="lockDays">
+							<p>锁定期</p>
+							<p>66天</p>
+						</div>
+						<div class="lowestPrice f-oneLine">
+							<p>起购金额(元)</p>
+							<p>1000</p>
+						</div>
+						<div class="riskRate">
+							<p>风险等级</p>
+							<p class="rRate risk">中</p>
+						</div>
+					</div>	
+				</li>
+				<li class="m-cardCxt">
+					<h3 class="hd">光大永明定活保168</h3>
+					<div class="bd rate">
+						<p>预期年化收益率</p>
+						<p class="rateNum"><span>6.1</span>%</p>
+					</div>
+					<div class="ft g-divideFlex">
+						<div class="lockDays">
+							<p>锁定期</p>
+							<p>66天</p>
+						</div>
+						<div class="lowestPrice f-oneLine">
+							<p>起购金额(元)</p>
+							<p>1000</p>
+						</div>
+						<div class="riskRate">
+							<p>风险等级</p>
+							<p class="rRate risk">中</p>
+						</div>
+					</div>	
+				</li>
+				<li class="m-cardCxt">
+					<h3 class="hd">光大永明定活保168</h3>
+					<div class="bd rate">
+						<p>预期年化收益率</p>
+						<p class="rateNum"><span>6.1</span>%</p>
+					</div>
+					<div class="ft g-divideFlex">
+						<div class="lockDays">
+							<p>锁定期</p>
+							<p>66天</p>
+						</div>
+						<div class="lowestPrice f-oneLine">
+							<p>起购金额(元)</p>
+							<p>1000</p>
+						</div>
+						<div class="riskRate">
+							<p>风险等级</p>
+							<p class="rRate risk">中</p>
+						</div>
+					</div>	
+				</li>
+				<li class="m-cardCxt">
+					<h3 class="hd">光大永明定活保168</h3>
+					<div class="bd rate">
+						<p>预期年化收益率</p>
+						<p class="rateNum"><span>6.1</span>%</p>
+					</div>
+					<div class="ft g-divideFlex">
+						<div class="lockDays">
+							<p>锁定期</p>
+							<p>66天</p>
+						</div>
+						<div class="lowestPrice f-oneLine">
+							<p>起购金额(元)</p>
+							<p>1000</p>
+						</div>
+						<div class="riskRate">
+							<p>风险等级</p>
+							<p class="rRate risk">中</p>
+						</div>
+					</div>	
+				</li>
+			</ol>
+			
+			<span class="u-pointer"><i class="first z-crt"></i><i></i><i></i><i></i><i></i></span>
+		</div>
+	</div>
+	<div class="m-round f-animate-blink"></div>
+	<div class="m-round m-round1 f-animate-jump">
+		
+	</div>
+	<div class="u-header1">
+		<p>理财通｜腾讯官方理财平台</p>
+	</div>
+	<ul class="m-list2">
+		<li>
+			<span class="left"><img src="images/f1.png"></span>
+			<div class="right">
+				<h3>稳健收益</h3>
+				<p>理财通已为1000万用户带来超过30亿收益</p>
+			</div>
+		</li>
+		<li>
+			<span class="left"><img src="images/f2.png"></span>
+			<div class="right">
+				<h3>稳健收益</h3>
+				<p>首创资金安全卡，腾讯安全专家为你保驾护航</p>
+			</div>
+		</li>
+		<li>
+			<span class="left"><img src="images/f3.png"></span>
+			<div class="right">
+				<h3>稳健收益</h3>
+				<p>资金随时存取，微信每日看收益</p>
+			</div>
+		</li>
+	</ul>
+	</div>
+	
+
+	<script type="text/javascript" src="js/flexible.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript">
+		var roundPar = document.querySelector('.m-round');
+		createRoundObj(roundPar, 11, 14);
+		var roundPar1 = document.querySelector('.m-round1');
+		createRoundObj(roundPar1, 3, 20);
+		
+	</script>
+</body>
+</html>

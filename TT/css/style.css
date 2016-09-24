@@ -2,7 +2,6 @@ html{-webkit-text-size-adjust: none;}
 body{
 	text-align: center;
 	background-color: #0b99e1; 
-	/*background-image: repeating-linear-gradient(-45deg, transparent 3px, rgba(0, 113, 171, 0.1) 0, rgba(0, 113, 171, .1) 4px, transparent 0, transparent 7px);*/
 	background-image: repeating-linear-gradient(-45deg, transparent 3px, rgba(0, 113, 171, 0.1) 0, rgba(0, 113, 171, .1) 4px, transparent 0, transparent 7px, rgba(0,113,171,.1) 0, rgba(0, 113,171,.1) 8px);
 }
 img{width: 100%;}
@@ -228,7 +227,6 @@ img{width: 100%;}
 }
 .p-footer .right{
 	margin-left: 18%;
-	padding: .7rem 0;
 	border-bottom: 1px solid #0077b3;
 }
 .p-footer li:last-child .right{

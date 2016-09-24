@@ -200,6 +200,7 @@ body{font-family: 'Microsoft YaHei'; overflow-x: hidden;
 .m-round .roundObj, .m-round .z-ji .roundObj:nth-child(2n){opacity: 1;}
 .m-round .roundObj:nth-child(2n), .m-round .z-ji .roundObj:nth-child(2n+1) {opacity: .5;}
 
+/* 使用flex实现环绕布局 */
 /*.m-round1 >div{display: flex;}
 .m-round1 .top, .m-round1 .bottom{width: 80%;}
 .m-round1 .left, .m-round1 .right{height: 80%;}
@@ -292,6 +293,7 @@ body{font-family: 'Microsoft YaHei'; overflow-x: hidden;
 	margin-left: 20%;
 	text-align: left;
 	font-size: .55rem;
+	padding: .7rem 0;
 }
 
 /* 卡片文字样式 */

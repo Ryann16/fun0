@@ -257,18 +257,22 @@
 <script type="text/javascript" src="js/flexible.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript">
+// 生成转盘周围闪烁的圆点，圆点每个边为11个，宽度为4%
 	var roundPar = document.querySelector('.zpOuter');
 	createRoundObj(roundPar, 11, '4%');
+
+// 生成转盘放置奖品的方块，设置方块内html，方块每边为3个，23%宽度，内部为template
 	var template = '<div><img src="images/money.png" alt="">\
 					<p>iphone 6S</p></div>';
 	var priceBox = document.querySelector('.m-round1');
 	createRoundObj(priceBox, 3, '23%', template);
+
+// 设置点击按钮事件
 	getPrice();
+
+// 让幻灯片动起来，4S切换一次，默认为第一张幻灯片
 	var slide = document.querySelector('.m-slide');
 	runSlide(slide, 4000, 1);
-
-
-	
 </script>
 </body>
 </html>
