@@ -244,22 +244,21 @@ body{font-family: 'Microsoft YaHei'; overflow-x: hidden;
 	font: italic 3rem impact;
 }
 .u-header{
-	height: 2.3rem;
+	height: 2.2rem;
 	color: #fff;
 	text-align: left;
 	padding-left: 6%;
+	padding-top: .1rem;
 }
 
 .u-header > *{
 	display: inline-block;
-	vertical-align: middle;
 }
 .u-header .right{
 	margin-left: 10%;
 }
 .u-header h3{
 	font-size: .8rem;
-    margin-top: -4px;
     line-height: 1.2;
 }
 .u-header .right p{
