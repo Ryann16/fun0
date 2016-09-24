@@ -259,8 +259,8 @@ body{font-family: 'Microsoft YaHei'; overflow-x: hidden;
 }
 .u-header h3{
 	font-size: .8rem;
-    /*margin-top: -4px;*/
-    margin-bottom: 3px;
+    margin-top: -4px;
+    line-height: 1.2;
 }
 .u-header .right p{
 	font-size: 0.7rem;
