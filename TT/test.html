@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>测试案例</title>
+	<style type="text/css">
+		.m-round{
+			position: relative;
+			width: 175px;
+			height: 175px;
+			outline: 1px dashed #000;
+			font-size: 0;
+		}
+		.m-round .roundObj{
+			display: inline-block;
+			border-radius: 50%;
+			line-height: 0;
+			background-color: #fe7832;
+		}
+		.m-round .top, .m-round .left, .m-round .right, .m-round .bottom{
+			position: absolute;
+
+		}
+		.m-round .top{left: 0; top: 0;}
+		.m-round .top .roundObj{ margin-right: 5px;}
+		.m-round .right{top: 0; right: 0; }
+		.m-round .right .roundObj{margin-bottom: 5px;}
+		.m-round .bottom{bottom: 0; right: 0; }
+		.m-round .bottom .roundObj{margin-left: 5px;}
+		.m-round .left{bottom: 0; left: 0; }
+		.m-round .left .roundObj{margin-top: 5px;}
+
+		.m-round .left, .m-round .right{
+			width: 10px;
+		}
+		.m-round .top, .m-round .bottom{white-space: nowrap;}
+		.floatReverse{
+
+		}
+
+		
+	</style>
+</head>
+<body>
+	<div class="test1"></div>
+	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript">
+		
+	</script>
+</body>
+</html>
