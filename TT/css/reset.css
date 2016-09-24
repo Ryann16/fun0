@@ -2,7 +2,13 @@ html, body, p, ul, ol, li, h1, h2, h3, h4, h5, h6{margin: 0; padding: 0;}
 button{border: 0; outline: 0;}
 ul, ol{list-style-type: none;}
 html, body{height: 100%;}
-body{font-family: 'Microsoft YaHei'; overflow-x: hidden;}
+body{font-family: 'Microsoft YaHei'; overflow-x: hidden;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
 
 .clearfix:after{
 	content: '.';
@@ -314,17 +320,18 @@ body{font-family: 'Microsoft YaHei'; overflow-x: hidden;}
 }
 .m-cardWrap .tag{
 	display: none;
-    position: absolute;
-    right: -1.7rem;
-    top: 0;
-    width: 40%;
-    text-align: center;
-    padding: 1.2rem 0 .6rem;
-    background-color: #eb5855;
-    color: #fff;
-    font-size: .75rem;
-    transform: rotate(45deg) translateY(-14px);
-    transform-origin: 50%;
+	position: absolute;
+	top: -4%;
+	right: -18%;
+	width: 50%;
+	text-align: center;
+	padding: 1.4rem 0 .6rem;
+	background-color: #eb5855;
+	color: #fff;
+	font-size: .75rem;
+	transform-origin: 50%;
+	height: 1rem;
+	transform: rotate(45deg) translateY(-14px);
 	
 }
 .m-cardWrap .card:last-child{
