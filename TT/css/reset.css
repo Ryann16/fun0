@@ -256,10 +256,12 @@ body{font-family: 'Microsoft YaHei'; overflow-x: hidden;
 }
 .u-header .right{
 	margin-left: 10%;
+    line-height: 1.2;
+	vertical-align: top;
 }
 .u-header h3{
 	font-size: .8rem;
-    line-height: 1.2;
+	margin-bottom: 3px;
 }
 .u-header .right p{
 	font-size: 0.7rem;
