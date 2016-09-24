@@ -153,6 +153,7 @@ img{width: 100%;}
 .m-active2 .text > span:last-child{
 	color: #ffdd18;
 	font-size: 0.7rem;
+	line-height: 1;
 }
 /* 获奖名单 */
 .m-active2 .winnersList{
