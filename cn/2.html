@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<div id="book_store">
+	<table>
+		<thead><tr><td>书名</td><td>作者</td><td>价格</td><td>操作</td></tr></thead>
+		<tbody>
+			<tr v-for="item in list">
+				<td>{{ item.book_name }}</td>
+				<td>{{ item.author }}</td>
+				<td>{{ item.price }}</td>
+				<td><button v-on:click="removeBook($index)">删除</button></td>
+			</tr>
+		</tbody>
+	</table>
+	<div>
+		<h3>添加书籍</h3>
+		<p><label>书名<input type="text" v-model="new_book.book_name"></label></p>
+		<p><label>作者<input type="text" v-model="new_book.author"></label></p>
+		<p><label>价格<input type="text" v-model="new_book.price"></label></p>
+		<button v-on:click="addBook">添加</button>
+	</div>
+</div>
+	
+
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript">
+		new Vue({
+			el: '#book_store',
+
+			data: {
+				new_book: null,
+				list: []
+			},
+
+			methods: {
+				addBook: function() {
+					var book_name =	this.new_book.book_name.trim(),
+						author = this.new_book.author.trim(),
+						price = this.new_book.price.trim();
+	
+					if(book_name && author && price) {
+						var book = {
+							book_name: book_name,
+							author: author,
+							price: price
+						}
+						this.list.push(book);
+						this.new_book = null;
+					}				
+				},
+
+				removeBook: function(index) {
+					this.list.splice(index, 1);
+				}
+			}
+		});
+	</script>
+</body>
+</html>
