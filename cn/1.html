@@ -2,14 +2,49 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title></title>
-	<meta name="viewliort" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<link rel="stylesheet" href="css/general.css">
-	<style>
-
-	</style>
+	<title>vue1</title>
 </head>
 <body>
-	
+	<div>
+      <input id="input" />
+      <ul id="list">
+        <!-- <li>
+          <span></span>
+          <button>X</button>
+        </li> -->
+      </ul>
+    </div>
+
+    <script type="text/javascript">
+        var input = document.getElementById('input');
+        var list = document.getElementById('list');
+
+        function createNode(str) {
+            var div = document.createElement('div');
+            div.innerHTML = str;
+            return div.children[0];
+        }
+        var temp = '<li><span></span><button>X</button></li>'
+
+        input.addEventListener('keyup', function(event) {
+            if(event.keyCode == 13 && input.value) {
+                var newNode = createNode(temp);
+                list.appendChild(newNode);
+                
+                var span = newNode.getElementsByTagName('span')[0];
+                var deleteBtn = newNode.getElementsByTagName('button')[0];
+
+                console.log(deleteBtn.parentNode);
+
+                span.innerText = input.value;
+                input.value = '';
+
+                deleteBtn.onclick =  function() {
+                    console.log(this.parentNode);
+                    list.removeChild(this.parentNode);
+                };
+            }
+        });
+       </script>
 </body>
 </html>
